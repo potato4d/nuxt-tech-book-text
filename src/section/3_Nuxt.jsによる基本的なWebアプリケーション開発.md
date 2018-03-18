@@ -6,6 +6,11 @@ Step-by-StepでNuxt.jsのパワフルな機能をご紹介していきますの�
 
 それでは実際に、開発の様子を体験してみましょう。
 
+また、もし手元に開発環境がないかたや、既に Nuxt にある程度慣れ親しんだかたで、ソースコードだけ確認したいかたは、 Web 上にデモアプリケーションとソースコードを公開していますので、下記の URL から適宜ご活用ください。
+
+- デモ: https://potato4d.github.io/nuxt-tech-book/examples/section03/03_Tutorial/
+- ソースコード: https://github.com/potato4d/nuxt-tech-book/tree/master/examples/section03/03_Tutorial
+
 ## 前提となる知識と注意
 
 これ以降のセクションでは、Nuxt.jsのベースとなるVue.jsへのある程度の理解が必須となります。まだVue.jsを触ったことがないかたは、この機会に一度Vue.jsの基礎を体験してからお読みいただくことで、より一層Nuxt.jsについての理解が進むでしょう。
