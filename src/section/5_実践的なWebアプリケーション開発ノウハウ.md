@@ -15,17 +15,18 @@ Web アプリケーションを開発する場合、 閲覧できるユーザー
 
 ### 共通利用する Cookie のインストール
 
-Nuxt から Cookie を読み書きする時は、 NPM モジュールの cookie を利用することが可能です。
+Nuxt から Cookie を読み書きする時は、 NPM モジュールの cookie および js-cookie を利用することで可能です。
 
 通常のフロントエンドというと、最近では localStorage でのデータ永続化が一般的ですが、 Nuxt の場合、 SSR と SPA でデータを共有できるという点で、 Cookie を利用しておくと非常に便利です。
 
 例によって例の如く CLI から導入しましょう。
 
 ```bash:terminal
-$ yarn add cookie
+$ yarn add cookie js-cookie
 ```
 
-cookie モジュールは、 `cookie.set` で Cookie のセット、`cookie.parse` で Cookie 文字列のパースなどが可能であり、単純なインターフェースのもと操作ができ、オススメです。
+cookie モジュールは、 `cookie.parse` で Cookie 文字列のパースなどが可能であり、読み出し時に便利です。
+js-cookie モジュールは、ブラウザでの Cookie 操作も可能であるため、フロントエンドでの操作が必要な箇所はこちらを利用すると良いでしょう。
 
 ### ミドルウェア ベースでの認証の実装
 
@@ -34,18 +35,18 @@ cookie モジュールは、 `cookie.set` で Cookie のセット、`cookie.pars
 ```auth.js
 import { parse } from 'cookie'
 
-export default async ({ req, route, redirect, isServer, store }) => {
-  if (!isServer || ['/login'].includes(route.path)) {
+export default function ({ req, route, redirect, store }) {
+  if (!process.server || ['/login'].includes(route.path)) {
     return
   }
 
   const cookies = parse(req.headers.cookie || '')
 
-  if ('credential' in cookies) {
+  if ('credential' in cookies && cookies.credential) {
     // Cookie を Vuex Store にコミットする処理など...
-   // 例えば store.dispatch('setToken', credential)
+    // 例えば store.dispatch('setToken', credential)
   } else {
-    return redirect('/users/login')
+    return redirect('/login')
   }
 }
 ```
@@ -65,8 +66,8 @@ module.exports = {
 試しに、 `pages/index.vue` と `pages/login.vue` を用意して動作させてみるとわかりやすいでしょう。
 また、実際に実装したサンプルデモ及びソースコードが以下にありますので、適宜ご利用ください。
 
-- Demo: https://potato4d.github.io/xxxxx/
-- GitHub: https://github.com/
+- Demo: https://potato4d.github.io/nuxt-tech-book/examples/section05/05_Auth_with_Middleware
+- GitHub: https://github.com/potato4d/nuxt-tech-book/tree/master/examples/section05/05_Auth_with_Middleware
 
 ### nuxtServerInit での認証の実装
 
@@ -92,7 +93,7 @@ export const actions = {
     const cookies = parse(req.headers.cookie || '')
     if ('credential' in cookies) {
       // Cookie を Vuex Store にコミットする処理など...
-     // 例えば store.dispatch('setToken', credential)
+      // 例えば store.dispatch('setToken', credential)
     } else {
       if (['/login'].includes(route.path)) {
         return redirect('/users/login')
@@ -104,8 +105,8 @@ export const actions = {
 
 こちらも実際に実装したサンプルデモ及びソースコードを公開しています。適宜ご利用ください。
 
-- Demo: https://potato4d.github.io/xxxxx/
-- GitHub: https://github.com/
+- Demo: https://potato4d.github.io/nuxt-tech-book/examples/section05/05_Auth_with_Vuex
+- GitHub: https://github.com/potato4d/nuxt-tech-book/tree/master/examples/section05/05_Auth_with_Vuex
 
 ## サーバーサイド JavaScript フレームワークとの連携
 
