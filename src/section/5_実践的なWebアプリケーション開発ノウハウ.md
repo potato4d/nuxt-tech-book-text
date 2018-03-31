@@ -19,30 +19,34 @@ Nuxt から Cookie を読み書きする時は、 NPM モジュールの cookie 
 
 通常のフロントエンドというと、最近では localStorage でのデータ永続化が一般的ですが、 Nuxt の場合、 SSR と SPA でデータを共有できるという点で、 Cookie を利用しておくと非常に便利です。
 
+Universal
+
 例によって例の如く CLI から導入しましょう。
 
 ```bash:terminal
-$ yarn add cookie js-cookie
+$ yarn add universal-cookie
 ```
 
-cookie モジュールは、 `cookie.parse` で Cookie 文字列のパースなどが可能であり、読み出し時に便利です。
-js-cookie モジュールは、ブラウザでの Cookie 操作も可能であるため、フロントエンドでの操作が必要な箇所はこちらを利用すると良いでしょう。
+universal-cookie モジュールは、フロントエンド・サーバーサイド両方で利用可能な、 Universal なクッキー操作のためのライブラリです。
+
+非常に手軽にコードを SSR と SPA で共通化できるため、 Nuxt 開発では、積極的に利用すると良いでしょう。
 
 ### ミドルウェア ベースでの認証の実装
 
 今回の例のプログラムを見ながら動作を確認してみましょう。 `middleware/auth.js` を作成し、以下のように記述してください。
 
 ```auth.js
-import { parse } from 'cookie'
+import Cookies from 'universal-cookie'
 
 export default function ({ req, route, redirect, store }) {
   if (!process.server || ['/login'].includes(route.path)) {
     return
   }
 
-  const cookies = parse(req.headers.cookie || '')
+  const cookies = new Cookies(req.headers.cookie)
+  const credential = cookies.get('credential')
 
-  if ('credential' in cookies && cookies.credential) {
+  if (credential) {
     // Cookie を Vuex Store にコミットする処理など...
     // 例えば store.dispatch('setToken', credential)
   } else {
@@ -64,7 +68,88 @@ module.exports = {
 ```
 
 試しに、 `pages/index.vue` と `pages/login.vue` を用意して動作させてみるとわかりやすいでしょう。
-また、実際に実装したサンプルデモ及びソースコードが以下にありますので、適宜ご利用ください。
+
+./pages/index.vue を以下のように。
+
+```html:index.vue
+<template>
+  <section>
+    <h1>HOME</h1>
+    <p>
+      <nuxt-link to="/login">
+        Move to login
+      </nuxt-link>
+    </p>
+  </section>
+</template>
+
+<script>
+import AppLogo from '~/components/AppLogo.vue'
+
+export default {
+  components: {
+    AppLogo
+  }
+}
+</script>
+
+<style scoped>
+section {
+  margin: 16px;
+}
+</style>
+```
+
+./pages/login.vue を以下のようにしてやるとわかりやすいでしょう。
+
+```html:login.vue
+<template>
+  <section>
+    <h1>Login</h1>
+    <p>
+    <button type="button" @click="addCredential">
+      Set credential
+    </button>
+    <button type="button" @click="removeCredential">
+      Remove credential
+    </button>
+    </p>
+    <p>
+      <a href="/">Move to home</a>
+    </p>
+  </section>
+</template>
+
+<script>
+import Cookies from 'universal-cookie'
+
+let cookies
+
+export default {
+  mounted() {
+    cookies = new Cookies()
+  },
+  methods: {
+    addCredential() {
+      cookies.set('credential', '1')
+    },
+    removeCredential() {
+      cookies.set('credential', '')
+    }
+  }
+}
+</script>
+
+<style scoped>
+section {
+  margin: 16px;
+}
+</style>
+```
+
+このように実装することで、非常に手軽に認証を実装することが可能となりました。実際の現場では、 axios-module と併用して、 API コールすることで 401 となるかのチェックを行っても良いでしょう。
+
+最後に、これらを実際に実装したサンプルデモ及びソースコードが以下にありますので、適宜ご利用ください。
 
 - Demo: https://potato4d.github.io/nuxt-tech-book/examples/section05/05_Auth_with_Middleware
 - GitHub: https://github.com/potato4d/nuxt-tech-book/tree/master/examples/section05/05_Auth_with_Middleware
@@ -84,23 +169,28 @@ nuxtServerInit は、 Vuex のルートモジュールに実装された "nuxtSe
 下記に、実際の実装例をご紹介します。モジュールモードにて実装されている場合の、 `store/index.js` の例となります。
 
 ```js:index.js
-import { parse } = cookie
-export const state = () => ({
-})
+import Vuex from 'vuex'
+import Cookies from 'universal-cookie'
 
-export const actions = {
-  nuxtServerInit ({}, { req, route, redirect }) {
-    const cookies = parse(req.headers.cookie || '')
-    if ('credential' in cookies) {
-      // Cookie を Vuex Store にコミットする処理など...
-      // 例えば store.dispatch('setToken', credential)
-    } else {
-      if (['/login'].includes(route.path)) {
-        return redirect('/users/login')
+export default () => new Vuex.Store({
+  actions: {
+    nuxtServerInit({ commit }, { req, route, redirect }) {
+      if (!process.server || ['/login'].includes(route.path)) {
+        return
+      }
+    
+      const cookies = new Cookies(req.headers.cookie)
+      const credential = cookies.get('credential')
+    
+      if (credential) {
+        // Cookie を Vuex Store にコミットする処理など...
+        // 例えば commit('')
+      } else {
+        return redirect('/login')
       }
     }
   }
-}
+})
 ```
 
 こちらも実際に実装したサンプルデモ及びソースコードを公開しています。適宜ご利用ください。
