@@ -62,9 +62,7 @@ Nuxt のドキュメントは、非常に情報が充実していると述べま
 
 #### 検索と解決方法の適用
 
-
-
-## プラグインの自作とNPMでの公開
+ここまでできたなら、 GitHub Pages へのデプロイで問題が起こっている例を調べると良さそうです。
 
 ## ドキュメント日本語翻訳プロジェクトのご紹介
 
@@ -91,14 +89,48 @@ Nuxt ドキュメントの翻訳は、 Vue.js 日本ユーザーグループの 
 ### Vue.js JP Slack への参加方法
 
 Vue.js JP Slack へは、どなたでも承認なしに参加することが可能です。
+特に翻訳を行うかたは、終わった後にレビュアーへとメンションするためにも、入っておくと良いでしょう。
 
 以下の URL より招待用のアプリケーションにアクセスし、メールアドレスを入力すると Invitation が届きますので、あとは通常通り参加してください。
 
+![Screen Shot 2018-03-31 at 16.28.29.png (72.3 kB)](https://img.esa.io/uploads/production/attachments/4699/2018/03/31/11203/c7b159f3-8cd8-4b5c-8704-7ab532a3275a.png)
+
 https://vuejs-jp-slackin.herokuapp.com
 
-参加すると、デフォルトでは #general チャンネルに参加していますが、追加で #transition チャンネルにも入りましょう。
+参加すると、デフォルトでは #general チャンネルに参加していますが、追加で #transition #transition_notify チャンネルにも入りましょう。
 
-ここでは、 Nuxt のドキュメントだけでなく、 Vue.js 日本語ドキュメントについての
+ここでは、 Nuxt のドキュメントだけでなく、 Vue.js 日本語ドキュメントについての翻訳プロジェクトなども走っています。もし気になるかたは、それぞれのドキュメントの GitHub レポジトリと並行して様子を見ておくと良いでしょう。
 
+![Screen Shot 2018-03-31 at 16.31.03.png (322.2 kB)](https://img.esa.io/uploads/production/attachments/4699/2018/03/31/11203/047e7a06-642e-414e-aac7-70d47b309d1c.png)
 
 ### GitLocalize を利用した翻訳の手順
+
+次の GitLocalize の登録です。
+https://gitlocalize.com にアクセスし、  "Get started with GitHub" より、 GitHub ログインを行います。
+
+![Screen Shot 2018-03-31 at 16.37.53.png (167.9 kB)](https://img.esa.io/uploads/production/attachments/4699/2018/03/31/11203/ff3d0922-5c14-4cb6-9b54-8850104c4e6e.png)
+
+その後、 https://gitlocalize.com/repo/100/ja/en にアクセスをすると、 Nuxt のレポジトリの情報が出てきます。
+
+![Screen Shot 2018-03-31 at 16.43.33.png (122.3 kB)](https://img.esa.io/uploads/production/attachments/4699/2018/03/31/11203/bb389549-b4a3-443d-b9f3-1d9d0dd58dd5.png)
+
+翻訳したい・翻訳を修正したいファイルにアクセスをします。今回は Vuex Store の部分を修正してみます。
+
+該当ファイルにアクセスすると、このように英和の対応表が出てきます。その上で、修正したい部分をクリックして書き換えると完了となります。
+
+![Screen Shot 2018-03-31 at 16.41.35.png (364.3 kB)](https://img.esa.io/uploads/production/attachments/4699/2018/03/31/11203/37745b90-9bab-4bf8-97a7-aa7fd870425f.png)
+
+最後に、 GitHub でいうところの Pull Request を送る必要があります。
+翻訳ページの最上部にある、 "Create Review Request" をクリックして、説明文を書きましょう。
+
+![Screen Shot 2018-03-31 at 16.45.02.png (301.7 kB)](https://img.esa.io/uploads/production/attachments/4699/2018/03/31/11203/866e5935-de0e-4d83-9f4c-39c4a92c6bb5.png)
+
+説明文を書いたら、 Submit して完了となります。後はレビュアーフィードバックを待ちましょう。
+
+![Screen Shot 2018-03-31 at 16.46.18.png (147.4 kB)](https://img.esa.io/uploads/production/attachments/4699/2018/03/31/11203/f9edfa7d-fd04-4a93-aaf9-330c774c7119.png)
+
+Nuxt は進化が早いぶん、少しの気付きへの追従が多くの人に役立つ情報となりますので、もし翻訳について貢献できる箇所を見つけた場合、上記の手順に沿って積極的に翻訳してみてください。
+
+#### GitLocalize 不具合時の GitHub からの Pull Request について
+
+GitLocalize は新興のサービスであり、まれに翻訳がうまくできないことがあります。そういった場合は、現状の Nuxt ドキュメントの運用方針として、 GitHub との相互運用を容認していますので、 GitHub から直接 Pull Request を送信してください。
