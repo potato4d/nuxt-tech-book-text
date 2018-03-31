@@ -229,7 +229,7 @@ app.set('port', port)
 app.use('/api/', bodyParser.json())
 
 const config = require('../nuxt.config.js')
-config.dev = !(NODE_ENV === 'production')
+config.dev = !(process.env.NODE_ENV === 'production')
 
 const nuxt = new Nuxt(config)
 
@@ -283,6 +283,9 @@ const config = require('../nuxt.config.js')
 // ...
 ```
 
+このように書いて実行すると、 `/api/todos` では Express が、 `/` では Nuxt が呼び出されていることが確認できます。
+後は通常の Express アプリケーションのように開発するだけで OK です。
+
 ### データの取得
 
 Expressにて開発を行った上で、
@@ -307,6 +310,10 @@ Nuxt はユニバーサルな技術であるがゆえに、 Nuxt の管理下に
 
 - https://push7.jp
 - https://corp.scouter.co.jp
+
+また、実運用についての情報については、 Nuxt の範囲から逸脱するため今回は取り扱いませんが、筆者が情報をまとめて公開しているブログエントリがありますので、ご興味のあるかたは、こちらを参照してください。
+
+- http://techblog.scouter.co.jp/entry/2018/03/19/115229
 
 ## Nuxt アプリケーションをデプロイする
 
