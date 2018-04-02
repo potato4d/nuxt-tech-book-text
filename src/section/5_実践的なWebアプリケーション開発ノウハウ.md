@@ -313,8 +313,8 @@ axios-module を利用すると、 withCredential オプションによる Nuxt 
 
 こちらも、実際に実装したサンプルデモ及びソースコードが以下にありますので、適宜ご利用ください。
 
-- Demo: https://potato4d.github.io/xxxxx/
-- GitHub: https://github.com/
+- Demo: https://potato4d.github.io/nuxt-tech-book/examples/section05/05_Express_Intergration
+- GitHub: https://github.com/potato4d/nuxt-tech-book/tree/master/examples/section05/05_Express_Intergration
 
 ### 実際の活用シーンについて
 
