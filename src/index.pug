@@ -1,0 +1,59 @@
+- title = 'ここにタイトル'
+
+doctype html
+html(lang="ja")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title= title
+
+    link(rel="stylesheet", href="../node_modules/highlight.js/styles/github.css")
+    //- link(rel="stylesheet", href="./main.css")
+
+  body
+    h1= title
+
+    nav#toc
+      h2 目次
+      ol
+        li.article: a(href="#section1")
+          .title イントロダクション
+        li.article: a(href="#section2")
+          .title Nuxt.js概論
+        li.article: a(href="#section3")
+          .title Nuxt.jsによる基本的なWebアプリケーション開発
+        li.article: a(href="#section4")
+          .title Nuxt の機能をフル活用する
+        li.article: a(href="#section5")
+          .title 実践的なWebアプリケーション開発ノウハウ
+        li.article: a(href="#section6")
+          .title Nuxt.jsのエコシステム
+        li.article: a(href="#section7")
+          .title Nuxt の情報収集・キャッチアップのススメ
+        li.article: a(href="#section8")
+          .title あとがき
+
+    article#section1
+      include:markdown section/1_イントロダクション.md
+
+    article#section2
+      include:markdown section/2_Nuxt.js概論.md
+
+    article#section3
+      include:markdown section/3_Nuxt.jsによる基本的なWebアプリケーション開発.md
+
+    article#section4
+    //-   include:markdown section/4_Nuxt の機能をフル活用する.md
+
+    article#section5
+    //-   include:markdown section/5_実践的なWebアプリケーション開発ノウハウ.md
+
+    article#section6
+      include:markdown section/6_Nuxt.jsのエコシステム.md
+
+    article#section7
+      include:markdown section/7_Nuxt の情報収集・キャッチアップのススメ.md
+
+    article#section8
+      include:markdown section/8_あとがき.md

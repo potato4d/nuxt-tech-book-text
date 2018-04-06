@@ -1,0 +1,19 @@
+{
+  "name": "nuxt-tech-book-text",
+  "repository": "https://github.com/potato4d/nuxt-tech-book-text.git",
+  "private": true,
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-pug": "^3.3.0",
+    "lowlight": "^1.9.1",
+    "pug": "^2.0.3",
+    "rehype-stringify": "^3.0.0",
+    "remark": "^9.0.0",
+    "remark-rehype": "^3.0.0"
+  }
+}
