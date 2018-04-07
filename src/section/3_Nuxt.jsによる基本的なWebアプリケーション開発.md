@@ -211,7 +211,7 @@ export default {
 実行すると、以下のように URL に応じてコンテンツが変わっていることがわかるかと思います。
 適当に URL の id の部分を変えて変更させてみましょう。
 
-<img width="1189" alt="Screen Shot 2018-03-05 at 21.32.19.png (248.8 kB)" src="https://img.esa.io/uploads/production/attachments/4699/2018/03/05/11203/2cae8c5c-665f-4b48-a226-9953e25e1fd4.png">
+<img alt="Screen Shot 2018-03-05 at 21.32.19.png (248.8 kB)" src="https://img.esa.io/uploads/production/attachments/4699/2018/03/05/11203/2cae8c5c-665f-4b48-a226-9953e25e1fd4.png">
 
 これで実際のコンテンツの出し分けが可能となりました。ここまでできたら、あとは id の値に応じてデータを取得するだけで完成することでしょう。このまま外部リソースの取得に進みます。
 
@@ -254,11 +254,11 @@ $ yarn add @nuxtjs/axios
 
 まずは https://github.com/settings/tokens にアクセスし、 Generate new token を選択。 Select scopes の repo にチェックを入れたものを生成しましょう。 Description も適当に書き終わったら、そのまま Generate Tokenをしてください。
 
-<img width="1189" alt="Screen Shot 2018-03-05 at 22.09.01.png (496.4 kB)" src="https://img.esa.io/uploads/production/attachments/4699/2018/03/05/11203/78bbece6-ae4b-4257-81cd-3ed4a51c4819.png">
+<img alt="Screen Shot 2018-03-05 at 22.09.01.png (496.4 kB)" src="https://img.esa.io/uploads/production/attachments/4699/2018/03/05/11203/78bbece6-ae4b-4257-81cd-3ed4a51c4819.png">
 
 そうすると、以下のような表示となり、トークンが払い出されます。スクリーンショットではマスクしていますが、英数字のトークンが発行されるはずです。これを忘れずに控えておいてください。
 
-<img width="1189" alt="Screen Shot 2018-03-05 at 22.11.07.png (510.2 kB)" src="https://img.esa.io/uploads/production/attachments/4699/2018/03/05/11203/56b5594d-95ac-4102-91b1-76a43f1c009a.png">
+<img alt="Screen Shot 2018-03-05 at 22.11.07.png (510.2 kB)" src="https://img.esa.io/uploads/production/attachments/4699/2018/03/05/11203/56b5594d-95ac-4102-91b1-76a43f1c009a.png">
 
 ### axios-module の Intercepter による認証情報の追加
 
@@ -317,7 +317,7 @@ export default {
 
 以下のように表示されていると成功です。
 
-<img width="1094" alt="Screen Shot 2018-03-08 at 19.55.54.png (741.1 kB)" src="https://img.esa.io/uploads/production/attachments/4699/2018/03/08/11203/c3116788-2548-4de7-a214-76cae0454f34.png">
+<img alt="Screen Shot 2018-03-08 at 19.55.54.png (741.1 kB)" src="https://img.esa.io/uploads/production/attachments/4699/2018/03/08/11203/c3116788-2548-4de7-a214-76cae0454f34.png">
 
 このように、axios-moduleで導入した axios は、 Nuxt の app オブジェクトの配下として自動的に登録されるため、明示的な import を必要とせず、気軽に叩くことが可能です。
 
@@ -346,7 +346,7 @@ export default store
 
 `stores/index.js` を作成すると、すぐに HMR がかかり、ブラウザの Vue.js devtools にストアが表示されるようになるはずです。
 
-<img width="1071" alt="Screen Shot 2018-03-08 at 23.25.37.png (120.4 kB)" src="https://img.esa.io/uploads/production/attachments/4699/2018/03/08/11203/d2bb91ce-d310-4948-bdb7-3a5d779a1136.png">
+<img alt="Screen Shot 2018-03-08 at 23.25.37.png (120.4 kB)" src="https://img.esa.io/uploads/production/attachments/4699/2018/03/08/11203/d2bb91ce-d310-4948-bdb7-3a5d779a1136.png">
 
 ここまでできたらソースコードを移植するだけです。
 今回は Vuex 自体の詳しい解説は省きますが、おおよそ通常通りの使い方で利用できるようになっています。

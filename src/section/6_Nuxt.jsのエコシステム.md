@@ -49,7 +49,7 @@ Yarn で導入しましょう。
 二つのパッケージ名は `@nuxtjs/axios` と `@nuxtjs/proxy` となっています。
 
 ```
-$ yarn add @nuxtjs/axios @nuxtjs/proxy 
+$ yarn add @nuxtjs/axios @nuxtjs/proxy
 ```
 
 ### axios 設定の記述
@@ -103,7 +103,7 @@ nuxt.config.js に、さらに設定を追記してください。
     <ul>
       <li v-for="user in users" :key="user.id">
         <p>
-          <img :src="user.profile_image_url" alt="" width="48"><br>
+          <img :src="user.profile_image_url" alt="" ><br>
           <strong>{{user.id}}</strong><br>
           {{user.description}}
         </p>
@@ -157,7 +157,7 @@ Service Worker ベースの技術である、オフライン対応や、 OneSign
 パッケージ名は `@nuxtjs/pwa` となります。
 
 ```
-$ yarn add @nuxtjs/pwa 
+$ yarn add @nuxtjs/pwa
 ```
 
 ### config への PWA オプションの追加
