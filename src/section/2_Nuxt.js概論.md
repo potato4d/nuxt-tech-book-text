@@ -84,7 +84,7 @@ https://vuefes.jp
 また、その他フロントエンドの花形ともいえる SPA、 Web アプリケーションの領域でも広く採用されています。
 最新の例では、ブロックチェーンメディア ALIS での実用例があります。
 
-Nuxt.js を AWS Lambda で動かし、同じく Lambda 上で動作するサーバーレス API と連携をしている事例です。
+Nuxt.js を AWS Lambda 上にデプロイし、同じく Lambda 上で動作するサーバーレス API と連携をしている事例です。
 こちらはソースコードがオープンソースとなっており、誰でも閲覧が可能となっておりますので、実運用の例として是非一度アクセスください。
 
 https://github.com/AlisProject/frontend-application
