@@ -8,11 +8,12 @@ html(lang="ja")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title= title
 
-    link(rel="stylesheet", href="../node_modules/highlight.js/styles/github.css")
-    //- link(rel="stylesheet", href="./main.css")
+    link(rel="stylesheet", href="github.css")
+    link(rel="stylesheet", href="main.css")
 
   body
-    h1= title
+    section#section0
+      include:markdown section/0_まえがき.md
 
     nav#toc
       h2 目次
@@ -44,7 +45,7 @@ html(lang="ja")
       include:markdown section/3_Nuxt.jsによる基本的なWebアプリケーション開発.md
 
     article#section4
-    //-   include:markdown section/4_Nuxt の機能をフル活用する.md
+      include:markdown section/4_Nuxt の機能をフル活用する.md
 
     article#section5
       include:markdown section/5_実践的なWebアプリケーション開発ノウハウ.md
