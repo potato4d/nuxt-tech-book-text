@@ -18,21 +18,61 @@ html(lang="ja")
     nav#toc
       h2 目次
       ol
-        li.article: a(href="#section1")
+        li.article
           .title イントロダクション
-        li.article: a(href="#section2")
+          ol
+            li これまでのSPA・これからのSPA
+            li 今後、フロントエンドのフレームワークに求められるモノ
+            li 高い生産性を誇る開発基盤
+            li これから流行する技術への対応
+            li 要求を満たす技術はどんなものであるか
+        li.article
           .title Nuxt.js概論
-        li.article: a(href="#section3")
-          .title Nuxt.jsによる基本的なWebアプリケーション開発
-        li.article: a(href="#section4")
+          ol
+            li Nuxt.jsとは何か
+            li 今、SPA開発にNuxt.jsが求められるワケ
+            li Nuxt.jsをオススメするシーン、しないシーン
+            li Nuxt.jsによる事例紹介
+        li.article
+          .title Nuxt による基本的なWebアプリケーション開発
+          ol
+            li 前提となる知識と注意
+            li 事前準備
+            li Nuxt プロジェクトのセットアップ
+            li Nuxt のプロジェクト構成について
+            li ルーティングとページコンポーネントの作成
+            li ルーティングに応じたコンテンツの出し分け
+            li asyncData と axios-module による外部リソースの取得
+            li Vuex ストアにデータを委譲する
+            li ここから広げていくには？
+        li.article
           .title Nuxt の機能をフル活用する
-        li.article: a(href="#section5")
+          ol
+            li layouts によるレイアウトの共通化
+            li middleware を利用したルーティング結果の改ざん
+            li plugin によるグローバルな機能拡張
+            li Vuexのモジュールモードを活用したオートローディング
+            li &lt;no-ssr&gt; と process.browser
+            li エラーページのカスタマイズ
+        li.article
           .title 実践的なWebアプリケーション開発ノウハウ
-        li.article: a(href="#section6")
-          .title Nuxt.jsのエコシステム
-        li.article: a(href="#section7")
+          ol
+            li 認証つきルーティングの機能の実装
+            li サーバーサイド JavaScript フレームワークとの連携
+            li SEO やソーシャルにも役立つ適切な HTML メタの設定
+            li アプリケーションのデプロイ
+        li.article
+          .title Nuxt のエコシステム
+          ol
+            li Nuxt の公式コミュニティプラグインの活用について
+            li axios-module からの proxy-module の呼び出し
+            li pwa-module によるオフライン対応
+        li.article
           .title Nuxt の情報収集・キャッチアップのススメ
-        li.article: a(href="#section8")
+          ol
+            li 英語ドキュメントを効率的に読むコツ
+            li ドキュメント日本語翻訳プロジェクトのご紹介
+        li.article
           .title あとがき
 
     article#section1
@@ -42,7 +82,7 @@ html(lang="ja")
       include:markdown section/2_Nuxt.js概論.md
 
     article#section3
-      include:markdown section/3_Nuxt.jsによる基本的なWebアプリケーション開発.md
+      include:markdown section/3_Nuxtによる基本的なWebアプリケーション開発.md
 
     article#section4
       include:markdown section/4_Nuxt の機能をフル活用する.md
@@ -51,7 +91,7 @@ html(lang="ja")
       include:markdown section/5_実践的なWebアプリケーション開発ノウハウ.md
 
     article#section6
-      include:markdown section/6_Nuxt.jsのエコシステム.md
+      include:markdown section/6_Nuxt のエコシステム.md
 
     article#section7
       include:markdown section/7_Nuxt の情報収集・キャッチアップのススメ.md

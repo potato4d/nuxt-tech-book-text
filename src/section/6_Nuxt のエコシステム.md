@@ -1,4 +1,4 @@
-# Nuxt.jsのエコシステム
+# Nuxt のエコシステム
 
 ここまでの内容で、 Nuxt のシステムは一通り理解した上で、実際の開発を十分に行うことができる状態となりました。
 
@@ -144,7 +144,7 @@ p {
 - Demo: https://potato4d.github.io/nuxt-tech-book/examples/section06/06_API_And_Proxy
 - GitHub: https://github.com/potato4d/nuxt-tech-book/tree/master/examples/section06/06_API_And_Proxy
 
-##  pwa-module によるオフライン対応
+## pwa-module によるオフライン対応
 
 pwa-module を利用すると、イマドキな PWA の対応を、簡単な設定だけで行うことが可能です。
 
