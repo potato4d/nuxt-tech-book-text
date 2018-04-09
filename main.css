@@ -32,7 +32,7 @@ body {
 }
 
 p {
-  margin: 24px 0;
+  margin: 22px 0;
   /* text-indentは行頭の空白のサイズを設定します */
   text-indent: 1em;
 }
@@ -50,30 +50,44 @@ article {
   page-break-after: always;
 }
 
-/*
+
 p .code-frame,
-p code{
+p code {
   margin: 0;
   padding: 0.2em 0.5em;
 }
-*/
 
-.code-frame,
+.code-frame .code-lang {
+  margin: 0 0.15em;
+  padding: 0.8em;
+  background-color: #FCFAF5; /* HSB(40, 3, 99) */
+  font-weight: bold;
+  border-radius: 0.3em 0.3em 0 0 / 0.3em 0.3em 0 0;
+}
+
+.code-frame pre,
 code {
-  margin: 0 0.2em;
-  padding: 1em;
+  margin: 0 0.15em;
+  padding: 0.8em;
   background-color: #ebe9e5;
-  border-radius: 0.2em;
+  border-radius: 0 0 0.3em 0.3em / 0 0 0.3em 0.3em;
   word-break: break-all;
   word-wrap: break-word;
 }
 
-figure img {
+.code-frame pre code {
+  padding: 0;
+  margin: 0;
+}
+
+img {
   display: block;
   margin: 10px auto;
   max-width: 100%;
+/*
   border-radius: 3px;
   box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.2);
+*/
 }
 
 tr, th, td {
@@ -118,7 +132,7 @@ article {
   counter-increment: section;
   counter-reset: fig footnote;
 }
-h1::before {
+article h1::before {
   /* counter(section)とすることで、その地点での
    * sectionカウンタの値を表示させます。
    */
@@ -169,19 +183,13 @@ h1::before {
    * これ以外にも、@top-centerなどが指定できます。
    * 参考: https://www.w3.org/TR/css3-page/#margin-boxes
    */
-  @bottom-left {
+  @bottom-center {
     /* contentでページの左下に追加するテキストを指定します。
      * counter(page)とすると、そのページのページ番号が指定できます。
      * contentは必ず指定する必要があるので、
      * 何も表示させない場合は空文字（''）を指定してください。
      */
     content: counter(page);
-    font-size: 12px;
-    font-family: SourceHanSerifJP, serif;
-  }
-
-  @bottom-right {
-    content: 'Viola';
     font-size: 12px;
     font-family: SourceHanSerifJP, serif;
   }
