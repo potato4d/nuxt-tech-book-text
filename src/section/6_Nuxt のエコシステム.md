@@ -14,9 +14,9 @@
 
 Nuxt のコードは、本体からドキュメントまで、すべて GitHub にて管理されていますが、公式のコミュニティプラグインも同様に管理されています。
 
-公式コミュニティの成果物は、専用の Org である https://github.com/nuxt-community にて管理されています。
+公式コミュニティの成果物は、専用の Organization である https://github.com/nuxt-community にて管理されています。
 
-この Org では、プラグインだけではなく、ボイラープレートや CLI ツールも公開されているため、試しに覗いてみると良いでしょう。
+この Organization では、プラグインだけではなく、ボイラープレートや CLI ツールも公開されているため、試しに覗いてみると良いでしょう。
 
 また、公式コミュニティの成果物は、必ず  nuxtjs のもと、 Scoped Package として公開されています。
 
@@ -35,7 +35,7 @@ proxy-module は、その名の通りプロキシ機能を提供するプラグ�
 
 マッピングを行うだけで、 /api を、 http://localhost:8000/api にプロキシしてくれると言った具合です。
 
-しかしながら、この proxy-module は現在 axios-module が依存対象としており、 axios-module を入れる場合は、 axios-module がわで proxy-module 設定を書くことができるようになっています。
+しかしながら、この proxy-module は現在 axios-module が依存対象としており、 axios-module を入れる場合は、 axios-module にて proxy-module 設定を書くことができるようになっています。
 
 ですが、今回は axios-module を使わない場合の開発も想定し、試しに proxy-module を別途入れて設定しています。
 
@@ -134,6 +134,7 @@ p {
 ```
 
 実際に動作させると、以下のように表示されます。
+
 ※ サンプルではアイコンをぼかしています
 
 ![Screen Shot 2018-03-31 at 15.50.45.png (161.9 kB)](https://img.esa.io/uploads/production/attachments/4699/2018/03/31/11203/fd9d948f-416a-4327-846f-3a87261d1d44.png)
@@ -191,10 +192,11 @@ PWA モジュールは、開発環境での事故を避けるため、 Service W
 $ yarn generate
 $ cd dist
 $ php -S 0.0.0.0:8080
-$ # php が入っていない人は python -m SimpleHTTPServer で良いでしょう
+$ # php が入っていない人は python -m SimpleHTTPServer でも可
 ```
 
 を実行した上で、立ち上がるサーバーにアクセス。
+
 Chrome Devtools など、お使いのブラウザの開発者ツールでオフラインにしてみると、オフラインでアクセスできていることがわかるはずです。
 
 ![Screen Shot 2018-03-31 at 14.06.23.png (55.6 kB)](https://img.esa.io/uploads/production/attachments/4699/2018/03/31/11203/5ce1ac3f-fcd5-4d64-b474-02fd0d5071e6.png)
