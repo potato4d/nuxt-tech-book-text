@@ -337,8 +337,7 @@ Vueコンポーネント向けの &lt;no-ssr&gt; タグおよびその内部ロ�
 
 process.browser は、 Node.js の process オブジェクトに拡張された boolean 型の変数となります。
 
-これは、 SSR 実行時は false に、ブラウザ上での、 SPA としての動作時は true にと、自動で
- Nuxt が切り替えてくれる変数となります。
+これは、 SSR 実行時は false に、ブラウザ上での、 SPA としての動作時は true へと、自動で Nuxt が切り替えてくれる変数となります。
 
 window オブジェクトを参照する際は、該当処理の前に process.browser の値を if で評価してやるなどによって、 SSR 時にエラーになることなく該当オブジェクトへの参照が可能となります。
 
@@ -347,3 +346,33 @@ window オブジェクトを参照する際は、該当処理の前に process.b
 ## エラーページのカスタマイズ
 
 最後に、開発が完了した頃にあとから必要となりがちな、エラーページのカスタマイズについてご紹介いたします。
+
+Nuxt では、 4xx および 5xx エラーがでた際に、自動で `layouts/error.vue` を表示する機能が搭載されています。これによって通常のフレームワークであれば 404 だけであれば fallback で対処できますが、幅広い対応となると少し手間がかかるハンドリングが必要となりますが、 Nuxt では `error.vue` に全てのエラー情報が渡ってくるため、一つのテンプレートでまとめて管理することが可能となっております。
+
+また、この `layouts/error.vue` は、レイアウトファイルではありますが、実体はページファイルとよく似ています。 `<nuxt>` タグを持つことはなく、他のレイアウトをベースとして指定することができます。
+ここでは、簡単なエラー画面の実装例のみをご紹介します。サンプルの `error.vue` には、 404 とそれ以外の表示の出し分けを行っています。
+
+```html:error.vue
+<template>
+  <div class="container">
+    <template v-if="isNotFound">
+      <h1>404 not found</h1>
+      <nuxt-link to="/"> Back to home </nuxt-link>
+    </template>
+    <template v-else>
+      <h1>Error</h1>
+      <nuxt-link to="/"> Back to home </nuxt-link>
+    </template>
+  </div>
+</template>
+<script>
+export default {
+  props: ['error'],
+  computed: {
+    isNotFound () {
+      return this.error.statusCode == 404
+    }
+  }
+}
+</script>
+```
