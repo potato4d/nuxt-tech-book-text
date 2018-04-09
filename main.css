@@ -32,7 +32,7 @@ body {
 }
 
 p {
-  margin: 22px 0;
+  margin: 25px 0;
   /* text-indentは行頭の空白のサイズを設定します */
   text-indent: 1em;
 }
@@ -43,6 +43,15 @@ h1, h2, h3, h4, h5 {
    * 以下の例では、タグの直後に新しいページが始まらないように指定しています。
    */
   break-after: avoid;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+h4 {
+  font-weight: 1.1em;
+  border-bottom: solid 1px #e5e5e5;
 }
 
 article {
@@ -62,6 +71,7 @@ p code {
   padding: 0.8em;
   background-color: #FCFAF5; /* HSB(40, 3, 99) */
   font-weight: bold;
+  line-height: 1.75;
   border-radius: 0.3em 0.3em 0 0 / 0.3em 0.3em 0 0;
 }
 
@@ -71,6 +81,7 @@ code {
   padding: 0.8em;
   background-color: #ebe9e5;
   border-radius: 0 0 0.3em 0.3em / 0 0 0.3em 0.3em;
+  line-height: 1.75;
   word-break: break-all;
   word-wrap: break-word;
 }
@@ -78,6 +89,7 @@ code {
 .code-frame pre code {
   padding: 0;
   margin: 0;
+  line-height: 1.75;
 }
 
 img {
