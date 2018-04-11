@@ -48,8 +48,8 @@ export default function ({ req, route, redirect, store }) {
   const credential = cookies.get('credential')
 
   if (credential) {
-    // Cookie を Vuex Store にコミットする処理など...
-    // 例えば store.dispatch('setToken', credential)
+    // Main logic here...
+    // e.g. store.dispatch('setToken', credential)
   } else {
     return redirect('/login')
   }
@@ -198,8 +198,8 @@ export default () => new Vuex.Store({
       const credential = cookies.get('credential')
 
       if (credential) {
-        // Cookie を Vuex Store にコミットする処理など...
-        // 例えば commit('')
+        // Main logic here...
+        // e.g. commit('')
       } else {
         return redirect('/login')
       }

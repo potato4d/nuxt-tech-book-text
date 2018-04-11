@@ -192,7 +192,7 @@ PWA モジュールは、開発環境での事故を避けるため、 Service W
 $ yarn generate
 $ cd dist
 $ php -S 0.0.0.0:8080
-$ # php が入っていない人は python -m SimpleHTTPServer でも可
+$ # or python -m SimpleHTTPServer
 ```
 
 を実行した上で、立ち上がるサーバーにアクセス。
