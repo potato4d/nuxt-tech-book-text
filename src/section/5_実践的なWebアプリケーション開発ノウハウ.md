@@ -1,4 +1,4 @@
-# 実践的なWebアプリケーション開発ノウハウ
+# 実践的な Web アプリケーション開発ノウハウ
 
 ここまで、基本的なアプリケーション開発と、 Nuxt の特徴的な機能についてご紹介しました。
 
@@ -69,11 +69,11 @@ export default function ({ req, route, redirect, store }) {
 
 ```js:nuxt.config.js
 module.exports = {
-// ...
+  // ...
   router: {
     middleware: ['auth']
   }
-// ...
+  // ...
 }
 ```
 
@@ -187,25 +187,26 @@ nuxtServerInit は、 Vuex のルートモジュールに実装された "nuxtSe
 import Vuex from 'vuex'
 import Cookies from 'universal-cookie'
 
-export default () => new Vuex.Store({
-  actions: {
-    nuxtServerInit({ commit }, { req, route, redirect }) {
-      if (!process.server || ['/login'].includes(route.path)) {
-        return
-      }
+export default () =>
+  new Vuex.Store({
+    actions: {
+      nuxtServerInit({ commit }, { req, route, redirect }) {
+        if (!process.server || ['/login'].includes(route.path)) {
+          return
+        }
 
-      const cookies = new Cookies(req.headers.cookie)
-      const credential = cookies.get('credential')
+        const cookies = new Cookies(req.headers.cookie)
+        const credential = cookies.get('credential')
 
-      if (credential) {
-        // Main logic here...
-        // e.g. commit('')
-      } else {
-        return redirect('/login')
+        if (credential) {
+          // Main logic here...
+          // e.g. commit('')
+        } else {
+          return redirect('/login')
+        }
       }
     }
-  }
-})
+  })
 ```
 
 こちらも実際に実装したサンプルデモ及びソースコードを公開しています。適宜ご利用ください。
@@ -304,7 +305,7 @@ const config = require('../nuxt.config.js')
 
 ### データの取得
 
-Expressにて開発を行った上で、
+Express にて開発を行った上で、
 実際の Express サーバーとの連携は、 axios-module を利用すると良いでしょう。
 3 章にて導入方法はご紹介しておりますので、導入までは省き、利用例を掲載しておきます。
 
@@ -462,7 +463,7 @@ Nuxt は、その柔軟性から様々な方法でデプロイが可能です。
 まず一つに、 静的サイトとして運用するか、 SSR サーバーを建てるかという選択があります。
 Nuxt は、 Vue 単体のアプリケーションにはない generate 機能が実装されています。
 
-generate を利用すると、  generate の段階で Nuxt の asyncData などが実行された上で、その SSR 結果を HTML ファイルとして出力します。
+generate を利用すると、 generate の段階で Nuxt の asyncData などが実行された上で、その SSR 結果を HTML ファイルとして出力します。
 
 これにより、静的サイトホスティングサービスへのデプロイなどが可能となり、運用コストを時間面でも金銭面でも抑えることができるため、積極的に活用するべきでしょう。
 
@@ -472,7 +473,7 @@ generate を利用すると、  generate の段階で Nuxt の asyncData など�
 
 #### デプロイ先について
 
-運用方法によりますが、今回はざっくりと「静的サイトホスティング」と「SSR サーバー運用」で分けてみましょう。
+運用方法によりますが、今回はざっくりと「静的サイトホスティング」と「SSR サーバー運用」 で分けてみましょう。
 
 勿論、最終的にはただの静的 Web サイトもしくは Node.js サーバーとして動作させることが可能であるため、 Amazon EC2 などの IaaS サーバーでの運用も可能ですが、今回は省きます。
 

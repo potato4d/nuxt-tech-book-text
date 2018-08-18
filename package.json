@@ -16,5 +16,8 @@
     "rehype-stringify": "^3.0.0",
     "remark": "^9.0.0",
     "remark-rehype": "^3.0.0"
+  },
+  "dependencies": {
+    "prettier": "^1.14.2"
   }
 }

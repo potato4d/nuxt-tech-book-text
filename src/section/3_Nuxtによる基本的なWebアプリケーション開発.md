@@ -1,6 +1,6 @@
-#  Nuxt による基本的なWebアプリケーション開発
+# Nuxt による基本的な Web アプリケーション開発
 
-ここまでで Nuxt のバックグラウンドやメリットについてご紹介してきましたが、ここからは Nuxt を触ったことがないかた向けに、 Nuxt での簡単なWebアプリケーションの開発の流れをご紹介いたします。
+ここまでで Nuxt のバックグラウンドやメリットについてご紹介してきましたが、ここからは Nuxt を触ったことがないかた向けに、 Nuxt での簡単な Web アプリケーションの開発の流れをご紹介いたします。
 
 Step-by-Step で Nuxt のパワフルな機能をご紹介していきますので、このセクションを一通り読んで実践していただくことで、 Nuxt による開発の空気感を掴んでいただくことができるはずです。
 
@@ -15,7 +15,7 @@ Step-by-Step で Nuxt のパワフルな機能をご紹介していきますの�
 
 これ以降のセクションでは、 Nuxt のベースとなる Vue.js へのある程度の理解が必須となります。まだ Vue.js を触ったことがないかたは、この機会に一度 Vue.js の基礎を体験してからお読みいただくことで、より一層 Nuxt についての理解が進むでしょう。
 
-また、既に Nuxt を使ったWebアプリケーション開発を行ったことがあるかたは、このセクションは基礎だけを扱うため、飛ばして次のセクションから読んでも問題はありません。
+また、既に Nuxt を使った Web アプリケーション開発を行ったことがあるかたは、このセクションは基礎だけを扱うため、飛ばして次のセクションから読んでも問題はありません。
 
 より実践的な機能について知りたいかたはセクション後半もしくは次の「 Nuxt の機能をフル活用する」からお読みください。
 
@@ -34,7 +34,7 @@ v8.9.4
 
 ### Yarn
 
-また、パッケージマネージャには Yarn を利用します。 NPM と比較して、キャッシュや並列でのインストールにより高速であることのほか、nuxt本体の依存の固定化が package-lock.json ではなく yarn.lock で行われているため、そういった意味でもYarnを利用すべきでしょう。必須ではありませんが、可能な限りインストールしておいてください。
+また、パッケージマネージャには Yarn を利用します。 NPM と比較して、キャッシュや並列でのインストールにより高速であることのほか、nuxt 本体の依存の固定化が package-lock.json ではなく yarn.lock で行われているため、そういった意味でも Yarn を利用すべきでしょう。必須ではありませんが、可能な限りインストールしておいてください。
 
 ```bash:terminal
 $ yarn -v
@@ -52,7 +52,7 @@ $ vue -V
 3.0.0-alpha.10
 ```
 
-本書執筆時点では vue-cli 3.0が開発中であるために vue-cli 2.x の互換機能である `vue init` を利用しますが、正式公開後は環境構築が大きく変わることが予想されます。もし古い情報である場合は、本書「はじめに」に記載されているGitHubレポジトリを参考に、適宜読み替えてください。
+本書執筆時点では vue-cli 3.0 が開発中であるために vue-cli 2.x の互換機能である `vue init` を利用しますが、正式公開後は環境構築が大きく変わることが予想されます。もし古い情報である場合は、本書「はじめに」に記載されている GitHub レポジトリを参考に、適宜読み替えてください。
 
 ### Vue.js devtools
 
@@ -60,7 +60,7 @@ Vue.js devtools は、 Chrome / Firefox 向けの拡張機能で、 Vue.js コ�
 
 Vue.js での開発では必須ともいえるツールですので、導入しておきましょう。
 
-##  Nuxt プロジェクトのセットアップ
+## Nuxt プロジェクトのセットアップ
 
 まずはプロジェクトを初期化します。適当なディレクトリに移動したのち、以下のコマンドでボイラープレートを展開できます。
 
@@ -68,7 +68,7 @@ Vue.js での開発では必須ともいえるツールですので、導入し�
 $ vue init nuxt/starter nuxt-project
 ```
 
-いくつか質問が出ますが、特に今回は変える必要もないでしょう。全てEnterしてください。以下のようなプロジェクト構成のディレクトリが作成されていると完了です。
+いくつか質問が出ますが、特に今回は変える必要もないでしょう。全て Enter してください。以下のようなプロジェクト構成のディレクトリが作成されていると完了です。
 
 ![Screen Shot 2018-03-04 at 20.24.01.png (341.1 kB)](https://img.esa.io/uploads/production/attachments/4699/2018/03/04/11203/9f6db09b-a776-4420-9f9a-c33898f2e7d2.png)
 
@@ -80,27 +80,27 @@ $ yarn
 $ yarn dev
 ```
 
-`yarn dev` は `yarn run dev`のエイリアスとなっています。基本的に Yarn を利用する場合、runは省略可能ですので、楽するためにも省略しておくと良いでしょう。`yarn dev`を実行したことにより、開発サーバーが立ち上がります。
+`yarn dev` は `yarn run dev`のエイリアスとなっています。基本的に Yarn を利用する場合、run は省略可能ですので、楽するためにも省略しておくと良いでしょう。`yarn dev`を実行したことにより、開発サーバーが立ち上がります。
 
-`[OPEN] http://localhost:3000`と表示された場合、初回ビルドとサーバーの立ち上げが完了した合図となりますので、そのまま localhost:3000 を開きましょう。VueのロゴがNuxtのロゴに変わるアニメーションつきのページが表示されることでしょう。ここまでで環境構築は完了となります。
+`[OPEN] http://localhost:3000`と表示された場合、初回ビルドとサーバーの立ち上げが完了した合図となりますので、そのまま localhost:3000 を開きましょう。Vue のロゴが Nuxt のロゴに変わるアニメーションつきのページが表示されることでしょう。ここまでで環境構築は完了となります。
 
 ![Screen Shot 2018-03-04 at 20.17.47.png (251.6 kB)](https://img.esa.io/uploads/production/attachments/4699/2018/03/04/11203/449e8aad-a981-483a-9bdc-5772b527dca1.png)
 
-## Nuxtのプロジェクト構成について
+## Nuxt のプロジェクト構成について
 
-プロジェクトのセットアップが完了したので、各ディレクトリの構造について、AtoZ順に簡単にご紹介します。
+プロジェクトのセットアップが完了したので、各ディレクトリの構造について、AtoZ 順に簡単にご紹介します。
 
-なお、layouts, middleware, pluginsについては、特殊な概念となりますので、ここでは取り扱わず、4章以降で詳しくご紹介します。
+なお、layouts, middleware, plugins については、特殊な概念となりますので、ここでは取り扱わず、4 章以降で詳しくご紹介します。
 
 ### assets ディレクトリ
 
-画像リソースや設定のJSONファイルなどのアプリケーションのソースコード外のものを管理します。
+画像リソースや設定の JSON ファイルなどのアプリケーションのソースコード外のものを管理します。
 
-ここにあるものは、基本的にwebpackのfile-loader経由で読まれることを前提として利用することになりますので、例えば動的なURLの組み立てなどは不可な反面、宣言的に読み出せるものはアセットを最適化して利用できますので、可能な限りここに素材はおくと良いでしょう。
+ここにあるものは、基本的に webpack の file-loader 経由で読まれることを前提として利用することになりますので、例えば動的な URL の組み立てなどは不可な反面、宣言的に読み出せるものはアセットを最適化して利用できますので、可能な限りここに素材はおくと良いでしょう。
 
 ### components ディレクトリ
 
-.vueで終わる、Vueコンポーネントを管理するディレクトリとなります。
+.vue で終わる、Vue コンポーネントを管理するディレクトリとなります。
 
 基本的にはここに全て集約していくこととなるので、適宜サブディレクトリを切って分類すると良いでしょう。
 
@@ -110,7 +110,7 @@ starter-template では `AppLogo.vue` が存在しています。
 
 それぞれのページコンポーネントを配置するディレクトリとなります。
 
-VueRouterなどをそのまま使う開発においても専用のページコンポーネントのディレクトリを設けることは多いかと思いますが、Nuxtの場合は、単なる明文化のためだけではなく、このディレクトリ配下はルーティングの自動生成の対象となる特別な意味をもつディレクトリとなっています。
+VueRouter などをそのまま使う開発においても専用のページコンポーネントのディレクトリを設けることは多いかと思いますが、Nuxt の場合は、単なる明文化のためだけではなく、このディレクトリ配下はルーティングの自動生成の対象となる特別な意味をもつディレクトリとなっています。
 
 starter-template では index.vue のみが存在しています。試しに書き換えて動作を見てみるのも良いでしょう。
 
@@ -128,9 +128,9 @@ starter-template で favicon.ico があるように、このディレクトリ�
 
 ## ルーティングとページコンポーネントの作成
 
-まずはルーティングから作成、Nuxtの画面の構築について一通り学んでから、ロジックの実装を進めていくこととしましょう。
+まずはルーティングから作成、Nuxt の画面の構築について一通り学んでから、ロジックの実装を進めていくこととしましょう。
 
-### Nuxtのルーティング自動生成システムについて
+### Nuxt のルーティング自動生成システムについて
 
 次は簡単なルーティングとページのコンポーネントを作成してみましょう。 Nuxt は、 `pages` ディレクトリ内にディレクトリやファイルを作成すると、それに沿ったルールでルーティングを作成してくれます。例として、以下のような構造の場合
 
@@ -143,7 +143,7 @@ pages/
 -----| _id.vue
 ```
 
-以下のようにURLを解決してくれます。
+以下のように URL を解決してくれます。
 
 ```txt:directory
 /         -> index.vue
@@ -152,13 +152,13 @@ pages/
 /users/1  -> users/_id.vue
 ```
 
-index.vueは `/` を、 `_id` といった、`_` から始まるものは、 `/users/:id` 形式をサポートしてくれます。この際、名称は `_id` に限った話ではなく、例えば `_name` や `_slug` なども可能です。この違いは、後述するルーティングパラメータの変数名の違いとなります。
+index.vue は `/` を、 `_id` といった、`_` から始まるものは、 `/users/:id` 形式をサポートしてくれます。この際、名称は `_id` に限った話ではなく、例えば `_name` や `_slug` なども可能です。この違いは、後述するルーティングパラメータの変数名の違いとなります。
 
-また、単純な about.vue などは、そのまま `/about` をサポートするため、例えば users 配下に about.vueを作成すると、 `/users/about` にてアクセスが可能となります。
+また、単純な about.vue などは、そのまま `/about` をサポートするため、例えば users 配下に about.vue を作成すると、 `/users/about` にてアクセスが可能となります。
 
 ### 実際のルーティングファイルの作成
 
-上記を踏まえて、実際にルーティングのファイルを作成してみます。今回はGitHubのユーザー情報を表示するアプリケーションのサンプルですので、 `pages/users/_id.vue` 辺りがあると十分でしょう。
+上記を踏まえて、実際にルーティングのファイルを作成してみます。今回は GitHub のユーザー情報を表示するアプリケーションのサンプルですので、 `pages/users/_id.vue` 辺りがあると十分でしょう。
 
 `pages/users/_id.vue` を作成し、以下のようにコードを書いてみましょう。
 
@@ -175,7 +175,7 @@ export default {
 </script>
 ```
 
-その上で、 http://localhost:3000/users/potato4d など、 /users/:id 形式のURLにアクセスすると、期待通り、以下のように先程記述した h1 が表示されていることがわかるかと思います。
+その上で、 http://localhost:3000/users/potato4d など、 /users/:id 形式の URL にアクセスすると、期待通り、以下のように先程記述した h1 が表示されていることがわかるかと思います。
 
 ![Screen Shot 2018-03-04 at 21.53.43.png (204.3 kB)](https://img.esa.io/uploads/production/attachments/4699/2018/03/04/11203/5dba0d4d-dedf-4952-b5aa-9f9e22d9f13e.png)
 
@@ -183,11 +183,11 @@ export default {
 
 さて、これで `/users/:id` 形式のルーティングを全て一つのファイルで受けることが可能となっていますが、実際のコンテンツの表示出し分けも行ってみます。
 
-コンテンツの出し分けの際にルーティングの情報を取得するには、通常のVue.jsのdataメソッドではなく、asyncDataメソッドを利用します。
+コンテンツの出し分けの際にルーティングの情報を取得するには、通常の Vue.js の data メソッドではなく、asyncData メソッドを利用します。
 
-これはNuxtが独自に処理するdataメソッドの拡張メソッドとなっており、これを利用することで、 Vuex ストアやルーティングのパラメータ、リダイレクト関数などにアクセスすることが可能となっています。
+これは Nuxt が独自に処理する data メソッドの拡張メソッドとなっており、これを利用することで、 Vuex ストアやルーティングのパラメータ、リダイレクト関数などにアクセスすることが可能となっています。
 
-サーバーサイドレンダリングの時に初期データをフェッチしたい、302リダイレクトを発生させたいなどのモチベーションが発生した際に有効に活用できるため、Nuxtのページコンポーネントでは、基本的に必ずdataのかわりにasyncDataを利用するようにしてください。
+サーバーサイドレンダリングの時に初期データをフェッチしたい、302 リダイレクトを発生させたいなどのモチベーションが発生した際に有効に活用できるため、Nuxt のページコンポーネントでは、基本的に必ず data のかわりに asyncData を利用するようにしてください。
 
 実際のルーティングパラメータの取得は、以下のように行います。分割代入を利用することでスマートにデータを取得できるので、活用すると良いでしょう。今回は、以下のように書いてみましょう。
 
@@ -219,7 +219,7 @@ export default {
 
 ## asyncData と axios-module による外部リソースの取得
 
-続いて先程書いた asyncData と、 HTTP 通信のライブラリを組み合わせて GitHub APIを叩いてみましょう。
+続いて先程書いた asyncData と、 HTTP 通信のライブラリを組み合わせて GitHub API を叩いてみましょう。
 
 ### axios-module の導入
 
@@ -252,9 +252,9 @@ $ yarn add @nuxtjs/axios
 
 ### GitHub の Personal Access Token の取得
 
-これは必須ではありませんが、 GitHub API へのアクセスは 1IP あたり 1時間に 60 回、 Access Token が存在する場合は 1000 回となります。 Nuxt の場合はホットリロードが存在する都合上、この API 制限を超過することは頻繁にありますので、超過してエラーとなることを考えてできれば取得しておくと良いでしょう。
+これは必須ではありませんが、 GitHub API へのアクセスは 1IP あたり 1 時間に 60 回、 Access Token が存在する場合は 1000 回となります。 Nuxt の場合はホットリロードが存在する都合上、この API 制限を超過することは頻繁にありますので、超過してエラーとなることを考えてできれば取得しておくと良いでしょう。
 
-まずは https://github.com/settings/tokens にアクセスし、 Generate new token を選択。 Select scopes の repo にチェックを入れたものを生成しましょう。 Description も適当に書き終わったら、そのまま Generate Tokenをしてください。
+まずは https://github.com/settings/tokens にアクセスし、 Generate new token を選択。 Select scopes の repo にチェックを入れたものを生成しましょう。 Description も適当に書き終わったら、そのまま Generate Token をしてください。
 
 <img alt="Screen Shot 2018-03-05 at 22.09.01.png (496.4 kB)" src="https://img.esa.io/uploads/production/attachments/4699/2018/03/05/11203/78bbece6-ae4b-4257-81cd-3ed4a51c4819.png">
 
@@ -269,9 +269,9 @@ $ yarn add @nuxtjs/axios
 まずは `plugins/axios.js` を追加。以下のように記述してください。
 
 ```js:axios.js
-export default function ({ $axios }) {
-  $axios.onRequest( (config) => {
-    if (config.url.indexOf('api.github.com') +1 ) {
+export default function({ $axios }) {
+  $axios.onRequest((config) => {
+    if (config.url.indexOf('api.github.com') + 1) {
       config.headers.Authorization = `token XXXXXXXXX`
       // XXXX is your access token
     }
@@ -323,7 +323,7 @@ export default {
 
 <img alt="Screen Shot 2018-03-08 at 19.55.54.png (741.1 kB)" src="https://img.esa.io/uploads/production/attachments/4699/2018/03/08/11203/c3116788-2548-4de7-a214-76cae0454f34.png">
 
-このように、axios-moduleで導入した axios は、 Nuxt の app オブジェクトの配下として自動的に登録されるため、明示的な import を必要とせず、気軽に叩くことが可能です。
+このように、axios-module で導入した axios は、 Nuxt の app オブジェクトの配下として自動的に登録されるため、明示的な import を必要とせず、気軽に叩くことが可能です。
 
 ## Vuex ストアへのデータの取り扱いの委譲
 
@@ -336,13 +336,14 @@ Nuxt の Vuex ストアのクラシックモードは、 `store/index.js` にフ
 
 ```js:index.js
 import Vuex from 'vuex'
-const store = () => new Vuex.Store({
-  state: {
-    user: null
-  },
-  mutations: {},
-  actions: {}
-})
+const store = () =>
+  new Vuex.Store({
+    state: {
+      user: null
+    },
+    mutations: {},
+    actions: {}
+  })
 export default store
 ```
 
@@ -360,31 +361,32 @@ export default store
 ```js:index.js
 import Vuex from 'vuex'
 
-const store = () => new Vuex.Store({
-  state: {
-    user: null
-  },
-  getters: {
-    user: (state) => state.user
-  },
-  mutations: {
-    saveUser (state, { user }) {
-      state.user = user
-    }
-  },
-  actions: {
-    async getUser ({ commit }, { id }) {
-      try {
-        const user = await this.$axios.$get(
-          `https://api.github.com/users/${id}`
-        )
-        commit('saveUser', { user })
-      } catch (e) {
-        return Promise.reject(e)
+const store = () =>
+  new Vuex.Store({
+    state: {
+      user: null
+    },
+    getters: {
+      user: (state) => state.user
+    },
+    mutations: {
+      saveUser(state, { user }) {
+        state.user = user
+      }
+    },
+    actions: {
+      async getUser({ commit }, { id }) {
+        try {
+          const user = await this.$axios.$get(
+            `https://api.github.com/users/${id}`
+          )
+          commit('saveUser', { user })
+        } catch (e) {
+          return Promise.reject(e)
+        }
       }
     }
-  }
-})
+  })
 
 export default store
 ```
@@ -426,4 +428,4 @@ export default {
 
 この章において一通りの構造は掴んでいただけたかと思いますが、本格的なアプリケーションをうまく実装するには、レイアウトの共通化や Vuex のストア分割など、追加で行っていくべきことも多くあります。
 
-豊富な機能とそれによる高い生産性は Nuxt の醍醐味ともいえますので、是非試しに小規模なアプリケーションを作りながら、次以降の「 Nuxt の機能をフル活用する」や「実践的なWebアプリケーション開発ノウハウ」を読み進めてみてください。
+豊富な機能とそれによる高い生産性は Nuxt の醍醐味ともいえますので、是非試しに小規模なアプリケーションを作りながら、次以降の「 Nuxt の機能をフル活用する」や「実践的な Web アプリケーション開発ノウハウ」を読み進めてみてください。

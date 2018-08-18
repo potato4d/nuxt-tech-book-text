@@ -126,7 +126,7 @@ https://vuejs-jp-slackin.herokuapp.com
 ### GitLocalize を利用した翻訳の手順
 
 次の GitLocalize の登録です。
-https://gitlocalize.com にアクセスし、  "Get started with GitHub" より、 GitHub ログインを行います。
+https://gitlocalize.com にアクセスし、 "Get started with GitHub" より、 GitHub ログインを行います。
 
 ![Screen Shot 2018-03-31 at 16.37.53.png (167.9 kB)](https://img.esa.io/uploads/production/attachments/4699/2018/03/31/11203/ff3d0922-5c14-4cb6-9b54-8850104c4e6e.png)
 
